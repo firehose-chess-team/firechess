@@ -10,41 +10,41 @@ class Game < ApplicationRecord
     end 
 
     (1..8).each do |num|
-      Pawn.create(player: black_player, position_x: num, position_y: 7)
+      pieces.create(type: 'Pawn', player: black_player, position_x: num, position_y: 7)
     end 
 
-  [1, 8].each do |num|
-    Rook.create(player: white_player, position_x: num, position_y: 1)
-  end 
+    [1, 8].each do |num|
+      pieces.create(type: 'Rook', player: white_player, position_x: num, position_y: 1)
+    end 
 
-  [1, 8].each do |num|
-    Rook.create(player: black_player, position_x: num, position_y: 8)
-  end 
+    [1, 8].each do |num|
+      pieces.create(type: 'Rook', player: black_player, position_x: num, position_y: 8)
+    end 
 
-  [2,7].each do |num|
-    Knight.create(player: white_player, position_x: num, position_y: 1)
-  end 
+    [2, 7].each do |num|
+      pieces.create(type: 'Knight', player: white_player, position_x: num, position_y: 1)
+    end 
 
-  [2,7].each do |num|
-    Knight.create(player: black_player, position_x: num, position_y: 8)
-  end 
+    [2, 7].each do |num|
+      pieces.create(type: 'Knight', player: black_player, position_x: num, position_y: 8)
+    end 
 
-  [3,6].each do |num|
-    Bishop.create(player: white_player, position_x: num, position_y: 1)
-  end 
+    [3, 6].each do |num|
+      pieces.create(type: 'Bishop', player: white_player, position_x: num, position_y: 1)
+    end 
 
-  [3,6].each do |num|
-    Bishop.create(player: black_player, position_x: num, position_y: 8)
-  end 
+    [3,6].each do |num|
+      pieces.create(type: 'Bishop', player: black_player, position_x: num, position_y: 8)
+    end 
 
-  Queen.create(player: white_player, position_x: 4, position_y: 1)
+    pieces.create(type: 'Queen', player: white_player, position_x: 4, position_y: 1)
 
-  Queen.create(player: black_player, position_x: 4, position_y: 8)
+    pieces.create(type: 'Queen', player: black_player, position_x: 5, position_y: 8)
 
-  King.create(player: white_player, position_x: 5, position_y: 1)
+    pieces.create(type: 'King', player: white_player, position_x: 5, position_y: 1)
   
-  King.create(player: black_player, position_x: 5, position_y: 8)
-end 
+    pieces.create(type: 'King', player: black_player, position_x: 4, position_y: 8)
+  end 
 
 
 end

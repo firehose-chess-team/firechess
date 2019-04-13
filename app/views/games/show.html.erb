@@ -1,88 +1,16 @@
-<h1>Hello!</h1>
+
+
 <p>firechess</p>
 
-<div id="chessboard">
-  <table>
-    <tr>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
+  
+  <table id='gameboard'>
+  <% (0..7).each do |row| %>
+    <tr class='position_x<%= row %>' >
+      <% (0..7).each do |column| %>
+        <td class='position_y<%= column %>' position_x='<%= row %>' position_y='<%= column %>' ></td>
+      <% end %>
     </tr>
-    <tr>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-    </tr>
-    <tr>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-    </tr>
-    <tr>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-    </tr>
-    <tr>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-    </tr>
-    <tr>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-    </tr>
-    <tr>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-    </tr>
-    <tr>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-      <td class="black"></td>
-      <td class="white"></td>
-    </tr>
+  <% end %>
+</table>
+  
 
-  </table>
-</div>
