@@ -1,16 +1,20 @@
 
 
-<p>firechess</p>
+<p>firechess test the board</p>
 
-  
+<div>  
   <table id='gameboard'>
-  <% (0..7).each do |row| %>
-    <tr class='position_x<%= row %>' >
-      <% (0..7).each do |column| %>
-        <td class='position_y<%= column %>' position_x='<%= row %>' position_y='<%= column %>' ></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
-  
+    <% (0..7).each do |row| %>
+      <tr class='position_x<%= row %>' >
+        <% (0..7).each do |column| %>
+          <td class='position_y<%= column %>' position_x='<%= row %>' position_y='<%= column %>' ></td>
+        <% end %>
+      </tr>
+    <% end %>
+ 
+      
+
+
+  </table>
+
 
