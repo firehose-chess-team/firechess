@@ -3,13 +3,19 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
   end
+
+  def index
+    @game = Game.all
+
+
   def create
     @game = Game.create(game_params)
-    redirect_to game_path(@game)
+    
   end
 
   def show
-    @game = Game.all
+    @game = Game.find(params[:id])
+
     end
   end
 
@@ -23,7 +29,7 @@ class GamesController < ApplicationController
   end
 
 
- 
+ end
 
 
   

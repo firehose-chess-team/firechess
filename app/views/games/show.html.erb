@@ -1,5 +1,22 @@
 
 
+<table id="gameboard" >
+  <% (0..7).reverse_each do |column| %>
+    <tr> 
+      <% (0..7).each do |row| %>
+      <!-- this gives a col and row to table cells-->
+        <td data-column="<%= column %> " data-row="<%= row %>" > 
+        <% if link_to(@game.piece, row, column)  %>
+          <div id='<%= @piece_id %>' class="pieces" >
+            <%= @piece_type %>            
+          </div >
+        <% end %>
+        </td>
+      <% end  %>
+    </tr>
+  <% end %> 
+</table>
+
 <p>firechess test the board</p>
 
 <div>  
