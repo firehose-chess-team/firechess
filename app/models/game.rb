@@ -7,7 +7,7 @@ class Game < ApplicationRecord
   has_many :pieces
   has_many :players
 
-  def piece_start (x, y)
+  def piece_start(x, y)
     pieces.where(position_x: x, position_y: y)
   end
 
