@@ -10,7 +10,7 @@ module GamesHelper
   end
 
   def piece_in_row_and_column?(piece, row, column)
-    piece && row == piece.coordinate_x && column == piece.coordinate_y      
+    piece && row == piece.position_x && column == position_y      
   end
 
   def link_to_piece(piece)
