@@ -1,11 +1,8 @@
 <%= render partial: "games/board" %>
 
-
-
-
 <br />
 
-<p>Test 2</p>
+<p>Firechess</p>
 
 <table id="gameboard" >
   <% (0..7).reverse_each do |column| %>
@@ -13,9 +10,13 @@
       <% (0..7).each do |row| %>
       <!-- this gives a col and row to table cells-->
         <td data-column="<%= column %> " data-row="<%= row %>" > 
-        
-          
-            <%= piece_image('rook', 'white')  %> 
+
+          <% @game = Game.find(2) %>
+          <% piece = @game.piece_at(row, column) %>
+          <!-- <%= piece %> -->
+          <% if piece %> 
+          <%= piece_image(piece.type.downcase, piece.piece_color)  %> 
+          <% end %> 
           </div >
         
         </td>
@@ -24,24 +25,10 @@
   <% end %> 
 </table>
 
-<p>firechess test the board</p>
 
-<div>  
-  <table id='gameboard'>
-    <% (0..7).each do |row| %>
-      <tr class='position_x<%= row %>' >
-        <% (0..7).each do |column| %>
-          <td class='position_y<%= column %>' position_x='<%= row %>' position_y='<%= column %>' >
-            <%= piece_path( row, column) %>
-          </td>
-        
-        <% end %>
-      </tr>
-    <% end %>
- 
       
 
 
-  </table>
+ 
 
 

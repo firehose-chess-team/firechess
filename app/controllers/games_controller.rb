@@ -14,9 +14,9 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
-
-    end
+    debugger
+    @game = Game.find(2)
+    @pieces = @game.pieces
   end
 
   
@@ -25,12 +25,12 @@ class GamesController < ApplicationController
   private
   
   def game_params
-    params.require(:game).permit(:white_player_id, :black_player_id )
+    params.require(:game).permit(:id, :white_player_id, :black_player_id )
   end
 
 
  end
 
-
+end
   
   

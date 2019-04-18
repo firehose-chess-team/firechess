@@ -10,7 +10,7 @@ class Game < ApplicationRecord
   scope :available, -> { where(player_white_id: nil) }
 
   def piece_at(x, y)
-    pieces.where(position_x: x, position_y: y)
+    pieces.find_by(position_x: x, position_y: y)
   end
 
   def initialize_board!
