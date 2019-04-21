@@ -6,7 +6,7 @@ class GamesController < ApplicationController
 
   def index
     @game = Game.all
-
+  end
 
   def create
     @game = Game.create(game_params)
@@ -14,7 +14,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    debugger
+    
     @game = Game.find(2)
     @pieces = @game.pieces
   end
@@ -29,7 +29,7 @@ class GamesController < ApplicationController
   end
 
 
- end
+ 
 
 end
   
