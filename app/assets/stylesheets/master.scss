@@ -1,3 +1,5 @@
+@import "bootstrap";
+
 #chessboard {
   outline: solid;
   width: 490px;
@@ -15,4 +17,36 @@
 
 #chessboard .black {
   background-color: black;
+}
+
+.white {
+  background-color: white;
+}
+
+.black {
+  background-color: black;
+}
+
+
+
+#gameboard {
+
+  border-collapse: collapse;
+  margin: 0 auto;
+  padding-top: 40px;
+  background-color: #000000;
+  border: 1px solid #000000;
+  width: auto;
+
+  
+
+  td {
+    width: 40px;
+    height: 40px;
+  }
+
+  tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd) {
+    background: white;
+  }
+
 }
