@@ -55,7 +55,51 @@ class Game < ApplicationRecord
     King.create(game_id: self.id, player_id: self.black_player_id, position_x: 3, position_y: 7, piece_color: 'black')
   end
 
+  def in_check?(player)
 
+    if player == black_player
+      @king = pieces.where(type: 'King', player_id: black_player).first
+      king_x = @king.position_x #should this be @king_x ??
+      king_y = @king.position_y #should this be @king_y ??
+        white_player.pieces.where(game: self.id).each do |piece|
+        if piece.type != 'King'
+          if is_valid_move_and_capture?(piece, @king) == true
+            @check_piece = @piece
+            return true
+          end
+        end
+      end
+      return false
+    end
+
+    if player == white_player
+      @king = pieces.where(type: 'King', player_id: white_player).first
+      @king_x = @king.position_x #should this be @king_x ??
+      @king_y = @king.position_y #should this be @king_y ??
+        black_player.pieces.where(game: self.id).each do |piece|
+        if piece.type != 'King'
+          if is_valid_move_and_capture?(piece, @king) == true
+            @check_piece = @piece
+            return true
+          end
+        end
+      end
+      return false
+    end
+
+  end
+
+  def is_valid_move_valid_capture?(piece, capture_piece)   #could i hard code @king here for capture piece?
+  
+        # is the move valid and capture valid - needs to be built for all pieces
+      if piece.valid_move?(capture_piece.position_x, capture_piece.position_y) == true && piece.is_capture_valid?(capture_piece.position_x, capture_piece.position_y) == true                  
+        @piece = piece
+        return true
+      end  
+  
+      return false
+    
+  end
 
 
 end
