@@ -45,4 +45,47 @@ class Pawn < Piece
     move_one_space?(x, y) || move_two_spaces?(x, y) || capture_diagonal?(x, y)
   end
 
+  def check_diagonal?(x_target, y_target)
+
+    x = position_x
+    y = position_y
+
+    # left to right - bottom to top
+    if x < x_target && y < y_target
+      while x < x_target do
+        x = x + 1
+        y = y + 1
+        return true if is_occupied?(x, y)
+      end       
+    end
+
+    # right to left - bottom to top
+    if x > x_target && y < y_target
+      while x > x_target do 
+        x = x - 1
+        y = y + 1
+        return true if is_occupied?(x, y)
+      end
+    end
+
+    # left to right top to bottom
+    if x < x_target && y > y_target
+      while x < x_target do 
+        x = x + 1
+        y = y - 1
+        return true if is_occupied?(x, y)
+      end
+    end
+
+    # right to left - top to bottom
+    if x > x_target && y > y_target
+      while x_target > x_target do
+        x = x - 1
+        y = y - 1
+        return true if is_occupied?(x, y)
+      end
+    end
+    return false
+  end
+
 end

@@ -32,4 +32,20 @@ RSpec.describe Piece do
 
   end 
 
+  describe '#check_diagonal?' do
+    subject(:test_diagonal) { my_piece.check_diagonal?(x_target, y_target) }
+
+    before do 
+      Piece.create(game: game, position_x: 2, position_y: 2)
+    end
+
+    context 'a piece is on the diagonal' do
+      let(:x) { 1 }
+      let(:y) { 1 }
+      it { is_expected eq true}
+    end
+
+
+  end
+
 end

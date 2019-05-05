@@ -59,8 +59,8 @@ class Game < ApplicationRecord
 
     if player == black_player
       @king = pieces.where(type: 'King', player_id: black_player).first
-      king_x = @king.position_x #should this be @king_x ??
-      king_y = @king.position_y #should this be @king_y ??
+      @king_x = @king.position_x #should this be @king_x or king_x ??
+      @king_y = @king.position_y #should this be @king_y or king_y ??
         white_player.pieces.where(game: self.id).each do |piece|
         if piece.type != 'King'
           if is_valid_move_and_capture?(piece, @king) == true
