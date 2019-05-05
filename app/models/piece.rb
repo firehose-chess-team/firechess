@@ -39,7 +39,7 @@ class Piece < ApplicationRecord
 
   def move_to!(new_x, new_y)
     #check to see if there is a piece ('blocking piece') in location already
-    blocklocking_piece_array = Piece.where(position_x: new_x, position_y: new_y)
+    blocking_piece_array = Piece.where(position_x: new_x, position_y: new_y)
     array_length = blocking_piece_array.length
     if array_length > 0
       blocking_piece = blocking_piece_array.take 

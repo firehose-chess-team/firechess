@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20190417073118) do
     t.integer  "position_y"
     t.integer  "player_id"
     t.integer  "game_id"
-    t.string   "type_id"
     t.string   "type"
     t.string   "piece_color"
     t.index ["game_id"], name: "index_pieces_on_game_id", using: :btree
@@ -40,7 +39,6 @@ ActiveRecord::Schema.define(version: 20190417073118) do
     t.index ["position_x"], name: "index_pieces_on_position_x", using: :btree
     t.index ["position_y"], name: "index_pieces_on_position_y", using: :btree
     t.index ["type"], name: "index_pieces_on_type", using: :btree
-    t.index ["type_id"], name: "index_pieces_on_type_id", using: :btree
   end
 
   create_table "players", force: :cascade do |t|

@@ -5,6 +5,13 @@ class PiecesController < ApplicationController
     @game = @select_piece.game
   end
 
+  def update
+    select_piece = Piece.find(params[:id])
+    select_piece.move_to!(params[:position_x], params[:position_y])
+  end
+
+
+
   private
 
   def piece_params
