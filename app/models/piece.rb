@@ -44,7 +44,30 @@ class Piece < ApplicationRecord
     Piece.exists?(game_id: game_id, position_x: x, position_y: y)
   end
 
- 
+  def boundaries(x, y)
+    #need to make sure the move stays with the chess board boundaries
+    return false if x > 7 || x < 0 || y > 7 || y < 0
+    return true
+  end
+
+  def captured!(new_x, new_y)
+    next_move = Piece.exists?(game_id: game_id, position_x: new_x, position_y: new_y).first
+    if defined?(next_move.piece_color)
+      if(next_move.piece_color == piece_color)
+        return false
+      else
+        next_move.update_attributes(position_x: nil, position_y: nil, captured: true)
+      end  
+  end
+
+
+  def move_to?(new_x, new_y)
+    return false if boundaries(new_x, new_y) == false
+    return false if valid_move?(new_x, new_y) == false
+    captured!(new_x, new_y)
+    update_attributes(position_x: new_x, position_y: new_y, has_moved: true)
+
+  end
 
 
 
