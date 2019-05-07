@@ -9,10 +9,11 @@ class Queen < Piece
       return true
     elsif x == @x && y == (0..7) && y != y
       return true
-    elsif if ((@y - @x) == (y - x) || (@y + @x) == (y + x))
+    elsif ((@y - @x) == (y - x) || (@y + @x) == (y + x))
       return true
     else
       return false
     end
   end
+
 end
