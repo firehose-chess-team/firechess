@@ -1,16 +1,16 @@
 class Rook < Piece
 
 
-    def initialize(x, y, image_url)
-        @image_url = image_url
-        @x = x
-        @y = y
-    end
+    # def initialize(x, y, image_url)
+      #  @image_url = image_url
+      #  @x = x
+      #  @y = y
+    # end
 
     def valid_move?(x, y)
-      if x == (0..7) && x != x && y == @y
-        return true
-      elsif x == @x && y == (0..7) && y != y
+      if self.position_x == x && self.position_y != y
+      return true
+    elsif self.position_x != x && self.position_y == y
         return true
       else
         return false

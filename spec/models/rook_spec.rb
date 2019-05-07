@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Rook, type: :model do  
+RSpec.describe Rook: :model do  
 
 
-  before(:all) do 
-    game = FactoryBot.build(:game, white_player_id: 3, black_player_id: 4)
+  before(:each) do 
+    game = FactoryBot.build(:game)
     player = FactoryBot.build(:player)
-    @rook = FactoryBot.build(:rook, position_x: 3, position_y: 5)      
+    @rook = FactoryBot.build(:rook, position_x: 3, position_y: 5, game: @game, player: @player)      
   end
 
   describe "rook valid_move?" do
