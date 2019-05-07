@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Knight, type: :model do
    
-   before(:all) do 
-    game = FactoryBot.build(:game, white_player_id: 3, black_player_id: 4)
+   before(:each) do 
+    game = FactoryBot.build(:game)
     player = FactoryBot.build(:player)
-    @knight = FactoryBot.build(:knight, position_x: 2, position_y: 2)      
+    @knight = FactoryBot.build(:knight, position_x: 2, position_y: 2, game: @game, player: @player)
     end
 
   describe "knight valid_move?" do
