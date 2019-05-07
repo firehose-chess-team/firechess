@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Bishop: :model do
   before(:each) do
-    @game = FactoryBot.build(:game)
-    @user = FactoryBot.build(:player)
+    game = FactoryBot.build(:game)
+    player = FactoryBot.build(:player)
     @bishop = FactoryBot.build(:bishop, position_x: 4, position_y: 4, game: @game, player: @player)
   end
 

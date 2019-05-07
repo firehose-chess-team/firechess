@@ -22,28 +22,29 @@ FactoryBot.define do
     
   end
   factory :pawn do
-    coordinate_x 0
-    coordinate_y 0
-    user_id 0
+    position_x 1
+    position_y 1
     game
   end
 
-  factory :user do
+  factory :player do
     sequence :email do |n|
       "dummi#{n}Email#{n}@gmail.com"
     end
 
     password {"secretPassword"}
-    password_confirmation {"secretPassword"}
+    name {"test"}
     sequence :id do |i|
       "#{i}#{i}"
     end
 
   end
+
   
   factory :game do
     name {"test"}
-    user_black_id {1}
+    white_player_id {1}
+    black_player_id {1}
     sequence :id do |i|
       "#{i}#{i}"
     end

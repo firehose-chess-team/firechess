@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe King, type: :model do 
   before(:all) do 
-    @game = FactoryBot.build(:game, id: 2)
-    @user = FactoryBot.build(:player, id: 2)
-    @king = FactoryBot.build(:king, position_x: 3, position_y: 0, game_id: game.id, user_id: 2)
+    game = FactoryBot.build(:game, id: 2)
+    player = FactoryBot.build(:player, id: 2)
+    @king = FactoryBot.build(:king, position_x: 3, position_y: 0)
   end
 
   describe '#valid_move?' do
