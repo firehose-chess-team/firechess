@@ -2,16 +2,22 @@ require 'rails_helper'
 
 RSpec.describe Pawn: :model do 
 
-  before(:each) do
-    game = FactoryBot.build(:game)
-    player = FactoryBot.build(:player)
-    @pawn = FactoryBot.build(:pawn, position_x: 1, position_y: 1, game: @game, player: @player)
-  end
+  let(:pawn) {FactoryBot.build(:pawn, position_x: x, position_y: y, game: game, player: player, piece_color: color)}
+  let(:game)  {FactoryBot.build(:game)}
+  let(:player)  {FactoryBot.build(:player)}
+  
+  
 
   describe '#move_one_space?' do
-    it 'should return true if pawn can move one space' do 
-      expect(@pawn.move_one_space?(1, 2)).to eq true
+    context 'pawn is white' do
+      let(:color) {'white'}
+      let(:x) {1}
+      let(:y) {1}
+      it 'should return true if pawn can move one space' do 
+        expect(pawn.move_one_space?(1, 2)).to eq true
+      end
     end
+    
 
     it 'should return false if the pawn moves more then 1 space' do 
       expect(@pawn.move_one_space?(1, 3)).to eq true

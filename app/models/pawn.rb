@@ -6,11 +6,11 @@ class Pawn < Piece
   end
 
   def move_up?(x, y)
-    (y - position_y) > 0 && piece_color == 'black'
+    (y - position_y) > 0 && piece_color == 'white'
   end
 
   def move_down?(x, y)
-    (y - position_y) < 0 && piece_color == 'white'
+    (y - position_y) < 0 && piece_color == 'black'
   end
 
   def move_one_space?(x, y)
