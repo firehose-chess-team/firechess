@@ -6,11 +6,11 @@ class Pawn < Piece
   end
 
   def move_up?(x, y)
-    (y - position_y) > 0 && piece_color == 'black'
+    (y - position_y) > 0 && piece_color == 'white'
   end
 
   def move_down?(x, y)
-    (y - position_y) < 0 && piece_color == 'white'
+    (y - position_y) < 0 && piece_color == 'black'
   end
 
   def move_one_space?(x, y)
@@ -94,20 +94,6 @@ class Pawn < Piece
     Piece.exists?(game_id: game_id, position_x: x, position_y: y)
   end
 
-  #def boundaries(x, y)
-    #need to make sure the move stays with the chess board boundaries
-   # return false if x > 7 || x < 0 || y > 7 || y < 0
-   # return true
-  # end
-
-  # def captured!(new_x, new_y)
-   # next_move = Piece.exists?(game_id: game_id, position_x: new_x, position_y: new_y).first
-   # if defined?(next_move.piece_color)
-    #  if(next_move.piece_color == piece_color)
-     #   return false
-     # else
-     #   next_move.update_attributes(position_x: nil, position_y: nil, captured: true)
-     # end  
-  # end
+  
 
 end
