@@ -55,6 +55,42 @@ class Piece < ApplicationRecord
       
   end
 
+  def captured?(new_x, new_y)
+    next_move = Piece.where(position_x: new_x, position_y: new_y).first
+    if defined?(next_move.user)
+      if(next_move.user == self.user)
+        raise RuntimeError
+      else
+        next_move.update_attributes(position_x: nil, position_y: nil, captured: true)
+      end
+    end
+  end
+
+  def is_capture_valid?(new_x, new_y)
+    targeted_piece = Piece.where(position_x: new_x, position_y: new_y).first
+    (!targeted_piece || targeted_piece.player == self.player) ? false : true
+  end
+
+  def diagonal_move?(next_x, next_y)
+    if (self.position_x - next_x).abs == (self.position_y - next_y).abs
+      return true
+    end
+      return false
+  end
+
+  def vertical_move?(next_x, next_y)
+    if self.position_x == next_x && self.position_y != next_y
+      return true
+    end
+      return false
+  end
+
+  def horizontal_move?(next_x, next_y)
+    if self.position_x != next_x && self.position_y == next_y
+      return true
+    end
+      return false
+    end
 
 end
 
