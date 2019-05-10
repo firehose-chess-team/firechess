@@ -97,4 +97,3 @@ class Pawn < Piece
   
 
 end
-
