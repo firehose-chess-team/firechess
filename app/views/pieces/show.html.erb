@@ -1,17 +1,26 @@
-<table>
+<table id="gameboard" >
   <% (0..7).reverse_each do |column| %>
-    <tr>
+    <tr> 
       <% (0..7).each do |row| %>
+      <!-- this gives a col and row to table cells-->
 
-        <% class_highlight = piece_in_row_and_column?(@selected_piece, row, column) ? 'highlighted' : "" %>
-        <td class="<%= class_highlight %>" data-column=<%= column %> data-row=<%= row %>> <!-- this gives a col and row to table cells-->
+        <% piece_options = @select_piece.valid_move?(row, column) ? 'selected_piece' : '' %>
+        <td class= "<%= piece_options %>" data-column="<%= column %> " data-row="<%= row %>" > 
 
+          <% piece = @game.piece_at(row, column) %>
+          <!-- <%= piece %> -->
+          <% if piece %> 
+          <% is_highlighted = piece == @select_piece ? 'selected_piece' : '' %>
+          <%= link_to piece_image(piece.type.downcase, piece.piece_color), piece_path(piece), class: is_highlighted %> 
+          <% else %>
+          <% if @select_piece.valid_move?(row, column) %>
+            <%= button_to 'move', piece_path(@select_piece), method: :put, params: { piece: {position_x: row, position_y: column}} %>
+          <% end %> 
 
-
+          <% end %> 
+          </div >
         
-
         </td>
-
       <% end  %>
     </tr>
   <% end %> 

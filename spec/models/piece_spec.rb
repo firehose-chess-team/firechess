@@ -8,6 +8,27 @@ RSpec.describe Piece do
   let(:game) { Game.create(white_player: player, black_player: player)}
   let(:piece_x) { 6 }
   let(:piece_y) { 1 }
+
+
+  describe '#move_to!' do
+    subject(:test_move_to) { my_piece.move_to!(x, y) }
+
+    before do 
+      Piece.create(game: game, position_x: 1, position_y: 1)
+    end
+
+    context ' can a piece move and remove another piece' do
+      let(:x) { 1 }
+      let(:y) { 1 }
+      it { is_expected.to eq true}
+      
+    end
+
+
+  end
+
+
+
   
 
   describe '#is_occupied?' do

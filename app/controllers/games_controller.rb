@@ -15,11 +15,17 @@ class GamesController < ApplicationController
 
   def show
     
-    @game = Game.find(2)
+    @game = Game.find(2) # replace 2 with (params[:id])
     @pieces = @game.pieces
   end
 
-  
+  def update
+    @game = Game.find(2) # replace 2 with (params[:id])
+    if current_user 
+      @game.update(user_white_id: current_user.id)     
+      redirect_to game_path
+    end
+  end
   
   
   private
