@@ -19,7 +19,13 @@ class GamesController < ApplicationController
     @pieces = @game.pieces
   end
 
-  
+  def update
+    @game = Game.find(2)
+    if current_player 
+      @game.update(white_player_id: current_player.id)
+      redirect_to game_path
+    end
+  end
   
   
   private

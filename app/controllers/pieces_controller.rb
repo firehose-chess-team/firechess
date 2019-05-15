@@ -6,8 +6,9 @@ class PiecesController < ApplicationController
   end
 
   def update
-    select_piece = Piece.find(params[:id])
-    select_piece.move_to!(params[:position_x], params[:position_y])
+    @select_piece = Piece.find(params[:id])
+    @game = @select_piece.game
+    @select_piece.move_to!(params[:piece][:position_x].to_i, params[:piece][:position_y].to_i)
   end
 
 

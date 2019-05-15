@@ -1,4 +1,5 @@
 class Piece < ApplicationRecord
+  attr_accessor :has_moved
 
   belongs_to :player
   belongs_to :game

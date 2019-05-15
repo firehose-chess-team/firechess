@@ -5,19 +5,19 @@ class Pawn < Piece
     x_move != 0
   end
 
-  def move_up?(x, y)
+  def move_up?(y)
     (y - position_y) > 0 && piece_color == 'white'
   end
 
-  def move_down?(x, y)
+  def move_down?(y)
     (y - position_y) < 0 && piece_color == 'black'
   end
 
   def move_one_space?(x, y)
-    if move_up?(x, y) || move_down?(x, y)
+    if move_up?(y) || move_down?(y)
       (x - position_x).abs.zero? && (y - position_y).abs == 1
-    else
-      false
+    #else
+     # false
     end
   end
 
@@ -39,9 +39,9 @@ class Pawn < Piece
   end
 
   def valid_move?(x, y)
-    return false if horizontal_move(x) && !check_diagonal?(x, y)
-    return false if is_occupied?(x, y) && !check_diagonal?(x, y)
-    return false if is_obstructed?(x, y) && !check_diagonal?(x, y)
+    return false if horizontal_move(x) 
+    return false if is_occupied?(x, y) 
+    return false if is_obstructed?(x, y) 
     move_one_space?(x, y) || move_two_spaces?(x, y) || capture_diagonal?(x, y)
   end
 

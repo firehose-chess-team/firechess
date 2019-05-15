@@ -1,0 +1,20 @@
+<table id="gameboard" >
+  <% (0..7).reverse_each do |column| %>
+    <tr> 
+      <% (0..7).each do |row| %>
+      <!-- this gives a col and row to table cells-->
+        <td class="class_highlight droppable" data-column="<%= column %> " data-row="<%= row %>" > 
+
+          <% @game = Game.find(2) %>
+          <% piece = @game.piece_at(row, column) %>
+          <!-- <%= piece %> -->
+          <% if piece %> 
+          <%= piece_image(piece.type.downcase, piece.piece_color)  %> 
+          <% end %> 
+          </div >
+        
+        </td>
+      <% end  %>
+    </tr>
+  <% end %> 
+</table>

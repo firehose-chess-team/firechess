@@ -9,6 +9,8 @@ class Game < ApplicationRecord
 
   scope :available, -> { where(player_white_id: nil) }
 
+  attr_accessor(:king, :king_x, :king_y)
+
   def piece_at(x, y)
     pieces.find_by(position_x: x, position_y: y)
   end

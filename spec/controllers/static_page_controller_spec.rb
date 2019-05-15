@@ -1,4 +1,4 @@
-require 'rails_helper'
+#require 'rails_helper'
 
 # RSpec.describe StaticPageController, type: :controller do
   # describe "static_page#index action" do

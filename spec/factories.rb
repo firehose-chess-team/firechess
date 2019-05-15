@@ -22,8 +22,8 @@ FactoryBot.define do
     
   end
   factory :pawn do
-    position_x 1
-    position_y 1
+    position_x 4 
+    position_y 4
     game
   end
 
