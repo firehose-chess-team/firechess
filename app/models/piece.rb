@@ -35,30 +35,24 @@ class Piece < ApplicationRecord
       
     end
 
+  end
+
+  def boundaries(x, y)
+    return false if x > 7 || x < 0 || y > 7 || y < 0
+    return true
   end  
 
   def move_to!(new_x, new_y)
-    #check to see if there is a piece ('blocking piece') in location already
-    blocking_piece_array = Piece.where(position_x: new_x, position_y: new_y)
-    array_length = blocking_piece_array.length
-    if array_length > 0
-      blocking_piece = blocking_piece_array.take 
-      #if blocking piece is same color, return error message
-      if blocking_piece.piece_color == @piece_color
-        raise 'invalid move: cannot replace your own piece'
-      end
-      #if blocking piece is opposite color, set block piece's coordinates to nil
-      blocking_piece.update_attributes(position_x: nil, position_y: nil)  
-    end
-    #update active piece's position to new coordinates
-    update_attributes(position_x: new_x, position_y: new_y)
-      
+    return false if boundaries(new_x,new_y) == false    
+    return false if valid_move?(new_x, new_y) == false
+    captured!(new_x, new_y)
+    update_attributes(position_x: new_x, position_y: new_y)  
   end
 
-  def captured?(new_x, new_y)
-    next_move = Piece.where(position_x: new_x, position_y: new_y).first
-    if defined?(next_move.user)
-      if(next_move.user == self.user)
+  def captured!(new_x, new_y)
+    next_move = Piece.where(game_id: game_id, position_x: new_x, position_y: new_y).first
+    if defined?(next_move.piece_color)
+      if(next_move.piece_color == piece_color)
         raise RuntimeError
       else
         next_move.update_attributes(position_x: nil, position_y: nil, captured: true)

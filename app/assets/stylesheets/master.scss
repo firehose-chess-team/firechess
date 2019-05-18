@@ -27,7 +27,9 @@
   background-color: black;
 }
 
-
+.selected_piece {
+  border: 3px solid red;
+}
 
 #gameboard {
 
@@ -48,5 +50,7 @@
   tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd) {
     background: white;
   }
+
+
 
 }

@@ -101,5 +101,9 @@ class Game < ApplicationRecord
     
   end
 
+  def piece_at(x, y)
+    pieces.where(position_x: x, position_y: y).first
+  end
+
 
 end

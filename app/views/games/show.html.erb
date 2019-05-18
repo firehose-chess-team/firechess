@@ -15,7 +15,7 @@
           <% piece = @game.piece_at(row, column) %>
           <!-- <%= piece %> -->
           <% if piece %> 
-          <%= piece_image(piece.type.downcase, piece.piece_color)  %> 
+          <%= link_to piece_image(piece.type.downcase, piece.piece_color), piece_path(piece)  %> 
           <% end %> 
           </div >
         
